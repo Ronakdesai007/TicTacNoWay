@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+body {
+    margin: 0;
+    height: 100vh;
+    font-family: 'Press Start 2P', monospace; /* Retro pixelated font */
+    color: #F4F4F4; /* Light gray text */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    background-color: #FDBE20; /* Dark blue-gray for a retro-modern feel */
+}
+
+.grid-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background-image: linear-gradient(#2F3B46 1px, transparent 1px),
+                      linear-gradient(90deg, #2F3B46 1px, transparent 1px);
+    background-size: 90px 90px;
+    opacity: 0.5; /* Subtle grid */
+    animation: moveGrid 6.2s linear infinite; /* Updated animation speed */
+}
+
+@keyframes moveGrid {
+    0% { background-position: 0 0; }
+    100% { background-position: 80px 80px; }
+}
+
+.container {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    background-color: #4B2F83; /* Slightly lighter gray for contrast */
+    padding: 20px; /* Reduced padding */
+    border-radius: 30px; /* Smooth rounded edges */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7); /* Soft shadow */
+    max-width: 350px; /* Reduced max width for smaller size */
+    width: 90%; /* Responsive width */
+    border: 2px solid #3F51B5; /* Retro-inspired deep blue border */
+}
+
+h1 {
+    margin-bottom: 15px;
+    color: #FF5722; /* Warm orange for the title */
+    font-size: 25px;
+    text-shadow: 1px 1px 4px #000; /* Subtle retro glow */
+}
+
+h2 {
+    color: #4CAF50; /* Fresh green for status text */
+    font-size: 15px; /* Slightly smaller font size */
+    margin-bottom: 10px;
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px; /* Reduced gap for compactness */
+    margin: 15px auto;
+}
+
+.cell {
+    width: 100px; /* Reduced cell size */
+    height: 100px;
+    background-color: #303742; /* Neutral dark gray */
+    border: 3px white; /* Scratchy effect on the border */
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 50px; /* Slightly smaller font size for "X" and "O" */
+    font-family: 'Press Start 2P', monospace;
+    color: #FFFFFF; /* Clean white */
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth grow-up and glow */
+}
+
+.cell:hover {
+    transform: scale(1.1); /* Grow effect */
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.6); /* Soft glow effect */
+}
